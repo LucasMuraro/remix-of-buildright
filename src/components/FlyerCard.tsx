@@ -15,11 +15,11 @@ const FlyerCard = ({ event, index }: { event: Event; index: number }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: Math.min(index * 0.04, 0.4) }}
-      className="break-inside-avoid mb-4"
+      className="h-full"
     >
       <Link
         to={`/event/${event.id}`}
-        className="block group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/60 transition-all hover:shadow-magenta"
+        className="flex flex-col h-full group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/60 transition-all hover:shadow-magenta"
       >
         {event.featured && (
           <div className="absolute top-3 left-3 z-10 flex items-center gap-1 bg-gradient-fire text-primary-foreground text-xs font-bold px-2.5 py-1 rounded-full shadow-glow">
