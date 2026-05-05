@@ -20,7 +20,6 @@ const FlyerGrid = ({ city, genre }: Props) => {
       .select("*")
       .eq("status", "approved")
       .gte("event_date", new Date().toISOString())
-      .order("featured", { ascending: false })
       .order("event_date", { ascending: true });
 
     if (city) q = q.eq("city", city);
