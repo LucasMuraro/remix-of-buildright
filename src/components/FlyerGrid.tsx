@@ -53,7 +53,7 @@ const FlyerGrid = ({ city, genre }: Props) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
         {events.map((e, i) => (
           <FlyerCard key={e.id} event={e} index={i} />
         ))}
