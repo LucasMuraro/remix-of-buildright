@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import GenreFilter from "@/components/GenreFilter";
 import FlyerGrid from "@/components/FlyerGrid";
+import GenreCarousel from "@/components/GenreCarousel";
 import { CITIES } from "@/lib/cities";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
           if (found) setCity(found.name);
         }}
       />
+      <GenreCarousel city={city} />
       <GenreFilter selected={genre} onSelect={setGenre} />
       <FlyerGrid city={city} genre={genre} />
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
