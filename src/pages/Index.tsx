@@ -20,6 +20,7 @@ const Index = () => {
           if (found) setCity(found.name);
         }}
       />
+      <GenreCarousel city={city} />
       <GenreFilter selected={genre} onSelect={setGenre} />
       <FlyerGrid city={city} genre={genre} />
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
