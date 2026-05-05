@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import GenreFilter from "@/components/GenreFilter";
 import FlyerGrid from "@/components/FlyerGrid";
+import GenreCarousel from "@/components/GenreCarousel";
 import { CITIES } from "@/lib/cities";
 
 const Index = () => {
