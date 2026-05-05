@@ -15,11 +15,11 @@ const Submit = () => {
   const [form, setForm] = useState({
     title: "",
     description: "",
-    city: CITIES[0].name,
+    city: CITIES[0].name as string,
     venue: "",
     address: "",
     event_date: "",
-    genre: GENRES[0],
+    genre: GENRES[0] as string,
     instagram_url: "",
     submitter_email: "",
   });
