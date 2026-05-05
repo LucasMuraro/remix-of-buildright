@@ -33,20 +33,22 @@ const FlyerCard = ({ event, index }: { event: Event; index: number }) => {
           </div>
         </div>
 
-        {event.flyer_url ? (
-          <img
-            src={event.flyer_url}
-            alt={event.title}
-            className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full aspect-[3/4] bg-gradient-night flex items-center justify-center p-6">
-            <h3 className="font-display text-3xl text-center text-gradient-sunset">
-              {event.title}
-            </h3>
-          </div>
-        )}
+        <div className="w-full aspect-[3/4] overflow-hidden bg-gradient-night flex-shrink-0">
+          {event.flyer_url ? (
+            <img
+              src={event.flyer_url}
+              alt={event.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center p-6">
+              <h3 className="font-display text-3xl text-center text-gradient-sunset line-clamp-4">
+                {event.title}
+              </h3>
+            </div>
+          )}
+        </div>
 
         <div className="p-4">
           <h3 className="font-display text-2xl tracking-wide leading-tight mb-2 line-clamp-2">
