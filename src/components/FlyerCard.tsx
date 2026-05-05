@@ -50,7 +50,7 @@ const FlyerCard = ({ event, index }: { event: Event; index: number }) => {
           )}
         </div>
 
-        <div className="p-4">
+        <div className="p-4 flex flex-col flex-1">
           <h3 className="font-display text-2xl tracking-wide leading-tight mb-2 line-clamp-2">
             {event.title}
           </h3>
