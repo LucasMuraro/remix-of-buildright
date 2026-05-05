@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Barlow", "system-ui", "sans-serif"],
+        display: ["'Bebas Neue'", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
