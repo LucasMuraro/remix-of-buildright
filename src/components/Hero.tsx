@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { CITIES } from "@/lib/cities";
+import { CAPITALS } from "@/lib/cities";
 
 interface Props {
   selectedCity: string;
