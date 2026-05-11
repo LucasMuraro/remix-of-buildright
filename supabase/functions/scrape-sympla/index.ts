@@ -72,6 +72,17 @@ async function parseSymplaPage(url: string): Promise<ScrapeResult> {
 
   const flyerUrl: string | undefined = Array.isArray(event.image) ? event.image[0] : event.image;
 
+  // Try to extract Instagram handle/url from the full page HTML or description
+  let instagramUrl: string | undefined;
+  const igMatch =
+    html.match(/https?:\/\/(?:www\.)?instagram\.com\/([A-Za-z0-9_.]+)/i) ||
+    (event.description || '').match(/@([A-Za-z0-9_.]{2,30})/);
+  if (igMatch) {
+    instagramUrl = igMatch[0].startsWith('http')
+      ? igMatch[0].split('?')[0]
+      : `https://instagram.com/${igMatch[1]}`;
+  }
+
   return {
     title: event.name,
     description: event.description?.slice(0, 1000),
@@ -81,6 +92,7 @@ async function parseSymplaPage(url: string): Promise<ScrapeResult> {
     venue: loc.name,
     address: [addr.streetAddress, addr.addressLocality].filter(Boolean).join(', '),
     flyer_url: flyerUrl,
+    instagram_url: instagramUrl,
     genre: inferGenre(`${event.name} ${event.description || ''}`) || undefined,
   };
 }
