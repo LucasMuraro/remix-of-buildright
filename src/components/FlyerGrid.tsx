@@ -49,7 +49,7 @@ function getDateBounds(range: DateRange): { from: Date; to?: Date } {
   return { from: now };
 }
 
-const FlyerGrid = ({ city, genre, search, dateRange }: Props) => {
+const FlyerGrid = ({ city, genre, search = "", dateRange = "all" }: Props) => {
   const [events, setEvents] = useState<Tables<"events">[]>([]);
   const [loading, setLoading] = useState(true);
 
