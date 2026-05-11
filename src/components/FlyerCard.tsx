@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Sparkles } from "lucide-react";
+import { Calendar, MapPin, Sparkles, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Tables } from "@/integrations/supabase/types";
 
@@ -10,17 +10,14 @@ const FlyerCard = ({ event, index }: { event: Event; index: number }) => {
   const day = date.getDate();
   const month = date.toLocaleDateString("pt-BR", { month: "short" }).replace(".", "");
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: Math.min(index * 0.04, 0.4) }}
-      className="h-full"
-    >
-      <Link
-        to={`/event/${event.id}`}
-        className="flex flex-col h-full group relative rounded-xl overflow-hidden bg-card border border-border hover:border-primary/60 transition-all hover:shadow-magenta"
-      >
+  // If we have an external ticket URL (sympla, eventbrite, etc), open it in a new tab.
+  // Otherwise fall back to the internal detail page.
+  const hasExternal = !!event.ticket_url;
+  const sharedClass =
+    "flex flex-col h-full group relative rounded-xl overflow-hidden bg-card border border-border hover:border-primary/60 transition-all hover:shadow-magenta";
+
+  const Inner = (
+    <>
         {event.featured && (
           <div className="absolute top-2 left-2 z-10 flex items-center gap-1 bg-gradient-fire text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full shadow-glow">
             <Sparkles className="w-2.5 h-2.5" /> TOP
