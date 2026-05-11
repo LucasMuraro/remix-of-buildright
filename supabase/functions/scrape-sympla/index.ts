@@ -9,6 +9,7 @@ interface ScrapeResult {
   state: string;
   venue?: string;
   address?: string;
+  instagram_url?: string;
   flyer_url?: string;
   genre?: string;
 }
