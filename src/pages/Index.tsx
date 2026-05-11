@@ -4,11 +4,14 @@ import Hero from "@/components/Hero";
 import GenreFilter from "@/components/GenreFilter";
 import FlyerGrid from "@/components/FlyerGrid";
 import GenreCarousel from "@/components/GenreCarousel";
+import SearchBar, { type DateRange } from "@/components/SearchBar";
 import { CITIES } from "@/lib/cities";
 
 const Index = () => {
   const [city, setCity] = useState<string>(CITIES[0].name);
   const [genre, setGenre] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [dateRange, setDateRange] = useState<DateRange>("all");
 
   return (
     <div className="min-h-screen bg-background">
@@ -21,8 +24,14 @@ const Index = () => {
         }}
       />
       <GenreCarousel city={city} />
+      <SearchBar
+        search={search}
+        onSearchChange={setSearch}
+        dateRange={dateRange}
+        onDateRangeChange={setDateRange}
+      />
       <GenreFilter selected={genre} onSelect={setGenre} />
-      <FlyerGrid city={city} genre={genre} />
+      <FlyerGrid city={city} genre={genre} search={search} dateRange={dateRange} />
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         <p>
           <span className="font-display text-lg text-gradient-sunset tracking-wider">
