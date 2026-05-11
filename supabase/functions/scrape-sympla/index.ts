@@ -185,6 +185,7 @@ Deno.serve(async (req) => {
       event_date: parsed.event_date,
       genre: parsed.genre,
       flyer_url: storedFlyer || parsed.flyer_url,
+      instagram_url: parsed.instagram_url,
       ticket_url: url,
       status: 'approved', // auto-approve scraping per user choice
     }).select().single();
