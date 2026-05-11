@@ -45,7 +45,7 @@ const Hero = ({ selectedCity, onSelectCity }: Props) => (
         </span>
       </motion.div>
       <div className="flex flex-wrap gap-2 md:gap-3">
-        {CITIES.map((city) => {
+        {CAPITALS.map((city) => {
           const active = city.slug === selectedCity;
           return (
             <button
