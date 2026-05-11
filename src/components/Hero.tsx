@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { CITIES } from "@/lib/cities";
+import { CAPITALS } from "@/lib/cities";
 
 interface Props {
   selectedCity: string;
@@ -45,7 +45,7 @@ const Hero = ({ selectedCity, onSelectCity }: Props) => (
         </span>
       </motion.div>
       <div className="flex flex-wrap gap-2 md:gap-3">
-        {CITIES.map((city) => {
+        {CAPITALS.map((city) => {
           const active = city.slug === selectedCity;
           return (
             <button
