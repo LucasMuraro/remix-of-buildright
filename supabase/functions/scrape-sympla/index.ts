@@ -150,7 +150,17 @@ Deno.serve(async (req) => {
     }
 
     const parsed = await parseSymplaPage(url);
-    const storedFlyer = parsed.flyer_url ? await downloadAndStoreFlyer(admin, parsed.flyer_url) : null;
+    if (!parsed.flyer_url) {
+      return new Response(JSON.stringify({ error: 'Evento sem foto/flyer — não importado. Só aceitamos eventos com imagem.' }), {
+        status: 422, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+    const storedFlyer = await downloadAndStoreFlyer(admin, parsed.flyer_url);
+    if (!storedFlyer) {
+      return new Response(JSON.stringify({ error: 'Falha ao baixar a foto do evento — não importado.' }), {
+        status: 422, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
 
     const { data: inserted, error } = await admin.from('events').insert({
       title: parsed.title,
