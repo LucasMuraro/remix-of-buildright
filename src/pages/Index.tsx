@@ -22,14 +22,11 @@ const Index = () => {
           const found = CITIES.find((c) => c.slug === slug);
           if (found) setCity(found.name);
         }}
-      />
-      <GenreCarousel city={city} />
-      <SearchBar
         search={search}
         onSearchChange={setSearch}
-        dateRange={dateRange}
-        onDateRangeChange={setDateRange}
       />
+      <GenreCarousel city={city} />
+      <SearchBar dateRange={dateRange} onDateRangeChange={setDateRange} />
       <GenreFilter selected={genre} onSelect={setGenre} />
       <FlyerGrid city={city} genre={genre} search={search} dateRange={dateRange} />
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
