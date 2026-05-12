@@ -25,7 +25,7 @@ const Index = () => {
         search={search}
         onSearchChange={setSearch}
       />
-      <GenreCarousel city={city} />
+      <FeaturedCarousel />
       <SearchBar dateRange={dateRange} onDateRangeChange={setDateRange} />
       <GenreFilter selected={genre} onSelect={setGenre} />
       <FlyerGrid city={city} genre={genre} search={search} dateRange={dateRange} />
