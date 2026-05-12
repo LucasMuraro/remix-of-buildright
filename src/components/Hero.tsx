@@ -45,7 +45,7 @@ const Hero = ({ selectedCity, onSelectCity }: Props) => (
           Escolha sua cidade
         </span>
       </motion.div>
-      <div className="flex flex-wrap gap-2 md:gap-3">
+      <div className="flex flex-wrap gap-2 md:gap-3 items-center">
         {CAPITALS.map((city) => {
           const active = city.slug === selectedCity;
           return (
@@ -63,6 +63,7 @@ const Hero = ({ selectedCity, onSelectCity }: Props) => (
             </button>
           );
         })}
+        <CityPickerDialog selectedSlug={selectedCity} onSelect={onSelectCity} />
       </div>
     </div>
   </section>
