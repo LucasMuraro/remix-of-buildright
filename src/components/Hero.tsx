@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { CAPITALS } from "@/lib/cities";
+import CityPickerDialog from "./CityPickerDialog";
 
 interface Props {
   selectedCity: string;
