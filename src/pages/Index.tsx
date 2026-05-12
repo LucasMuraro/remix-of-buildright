@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import GenreFilter from "@/components/GenreFilter";
 import FlyerGrid from "@/components/FlyerGrid";
-import GenreCarousel from "@/components/GenreCarousel";
+import FeaturedCarousel from "@/components/FeaturedCarousel";
 import SearchBar, { type DateRange } from "@/components/SearchBar";
 import { CITIES } from "@/lib/cities";
 
@@ -25,7 +25,7 @@ const Index = () => {
         search={search}
         onSearchChange={setSearch}
       />
-      <GenreCarousel city={city} />
+      <FeaturedCarousel />
       <SearchBar dateRange={dateRange} onDateRangeChange={setDateRange} />
       <GenreFilter selected={genre} onSelect={setGenre} />
       <FlyerGrid city={city} genre={genre} search={search} dateRange={dateRange} />
